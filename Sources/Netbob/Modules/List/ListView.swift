@@ -8,10 +8,12 @@ struct ListView: View {
     @StateObject var state: ListViewStateAbstract
 
     var body: some View {
-        List {
-            ForEach(state.connections) { viewData in
-                NavigationLink(destination: DetailView(state: .init(connection: viewData.connection))) {
-                    ListRow(viewData: viewData)
+        NavigationView {
+            List {
+                ForEach(state.connections) { viewData in
+                    NavigationLink(destination: DetailView(state: .init(connection: viewData.connection))) {
+                        ListRow(viewData: viewData)
+                    }
                 }
             }
         }
